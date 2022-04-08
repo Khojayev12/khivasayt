@@ -1,17 +1,8 @@
 import "../styles/globals.css";
-import Menu from "../components/Menu.jsx";
-import { LanguageContext } from "../components/LanguageContext";
-import { useState } from "react";
-import { themes } from "../components/LanguageContext";
+import { appWithTranslation } from "next-i18next";
 
 function MyApp({ Component, pageProps }) {
-  const [lang, setLang] = useState(themes.uz)
-  return (
-    <LanguageContext.Provider value={lang} >
-      <Menu />
-      <Component {...pageProps} />
-    </LanguageContext.Provider>
-  );
+  return <Component {...pageProps} />;
 }
 
-export default MyApp;
+export default appWithTranslation(MyApp);
