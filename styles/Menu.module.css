@@ -1,0 +1,27 @@
+.menu {
+  width: 100%;
+  height: 112px;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  background: none;
+}
+.menuTabs {
+  width: 90%;
+  margin-left: 5%;
+  margin-top: 32px;
+  text-align: center;
+
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 29px;
+  text-align: center;
+
+  color: white;
+}
+.menuTab {
+  display: inline-block;
+  margin-right: 42px;
+}

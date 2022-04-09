@@ -1,9 +1,11 @@
-import Head from 'next/head'
-import { Layout } from '../components/Layout'
-import styles from '../styles/Home.module.css'
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
-import { useTranslation } from 'next-i18next';
-import { useRouter } from 'next/router';
+import Head from "next/head";
+import Image from "next/image";
+import { Layout } from "../components/Layout";
+import s from "../styles/Home.module.css";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import { useTranslation } from "next-i18next";
+import { useRouter } from "next/router";
+import HeroImg from "../public/Media/heroImg.svg";
 
 export default function Home() {
   const { t } = useTranslation();
@@ -11,20 +13,25 @@ export default function Home() {
   const router = useRouter();
 
   const changeLang = () => {
-    router.push(router.asPath, router.asPath, { locale: 'en' });
-  }
+    router.push(router.asPath, router.asPath, { locale: "en" });
+  };
 
   return (
-    <Layout className={styles.container}>
-     <h1> Hello World!</h1>
-     <button onClick={changeLang}>Change</button>
-     <h2>{t('hi')}</h2>
+    <Layout className={s.container}>
+      <div className={s.heroImageDiv}>
+        <Image
+          src={HeroImg}
+          className={s.HeroImg}
+          alt=""
+          layout="fill"
+        />
+      </div>
     </Layout>
-  )
+  );
 }
 
 export const getStaticProps = async ({ locale }) => ({
   props: {
-    ...(await serverSideTranslations(locale, ['common']))
-  }
-})
+    ...(await serverSideTranslations(locale, ["common"])),
+  },
+});
