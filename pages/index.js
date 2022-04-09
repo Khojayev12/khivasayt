@@ -19,12 +19,15 @@ export default function Home() {
   return (
     <Layout className={s.container}>
       <div className={s.heroImageDiv}>
-        <Image
-          src={HeroImg}
-          className={s.HeroImg}
-          alt=""
-          layout="fill"
-        />
+        <div style={{ width: "100%", height: "100vh", position: "relative", background:"red" }}>
+          <Image
+            alt=""
+            src={HeroImg}
+            layout="fill"
+            quality={100}
+            objectFit="cover"
+          />
+        </div>
       </div>
     </Layout>
   );
